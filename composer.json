@@ -1,0 +1,18 @@
+{
+    "name": "hongxunpan/db",
+    "description": "connections for db, such as mysql & redis ...",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HongXunPan\\DB\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "HongXunPan",
+            "email": "me@kangxuanpeng.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,5 @@
+/vendor/
+test*
+/storage/
+*.idea
+*.vscode
