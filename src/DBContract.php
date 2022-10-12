@@ -11,6 +11,8 @@ abstract class DBContract implements DBInterface
     protected $connectConfig;
     protected $connection;
 
+    protected $connectionClass;
+
     private function __construct()
     {
     }
@@ -68,5 +70,14 @@ abstract class DBContract implements DBInterface
         }
         $instance->connection[$connectName] = $connection;
         return $connection;
+    }
+
+    public static function connection($connectName = 'default')
+    {
+        $connectionClass = self::getInstance()->connectionClass;
+        if (!is_subclass_of($connectionClass, DBConnectionContract::class)) {
+            throw new DBException('connection class error, must be extends DBConnectionContract');
+        }
+        return new $connectionClass(self::getConnection($connectName), $connectName);
     }
 }
