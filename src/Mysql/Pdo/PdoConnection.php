@@ -1,16 +1,16 @@
 <?php
 
-namespace HongXunPan\DB\Mysql;
+namespace HongXunPan\DB\Mysql\Pdo;
 
 use HongXunPan\DB\DBConnectionContract;
 use PDO;
 
-class MysqlConnection extends DBConnectionContract
+class PdoConnection extends DBConnectionContract
 {
     /**
      * @param $connection
      * @param string $connectName
-     * @return DBConnectionContract|MysqlConnection
+     * @return DBConnectionContract|PdoConnection
      * @noinspection PhpReturnDocTypeMismatchInspection
      */
     public function __construct($connection, $connectName = 'default')

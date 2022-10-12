@@ -1,12 +1,11 @@
 <?php
 
-namespace HongXunPan\DB\Mysql;
+namespace HongXunPan\DB\Mysql\Pdo;
 
 use Exception;
 use HongXunPan\DB\DBContract;
-use PDO;
 
-class Mysql extends DBContract
+class Pdo extends DBContract
 {
     public static function setConfig(array $config = [], $connectName = 'default', array $options = [])
     {
@@ -29,15 +28,15 @@ class Mysql extends DBContract
     }
 
     /**
-     * @param PDO $connection
-     * @return PDO|false
+     * @param \PDO $connection
+     * @return \PDO|false
      * @author HongXunPan <me@kangxuanpeng.com>
      * @date 2022-10-11 16:14
      */
     protected function ping($connection)
     {
         try {
-            if ($connection->getAttribute(PDO::ATTR_SERVER_INFO)) {
+            if ($connection->getAttribute(\PDO::ATTR_SERVER_INFO)) {
                 return $connection;
             }
         } catch (Exception $e) {
@@ -47,11 +46,11 @@ class Mysql extends DBContract
 
     protected function connect(array $config)
     {
-        return new PDO($config['dsn'], $config['username'], $config['password'], $config['options']);
+        return new \PDO($config['dsn'], $config['username'], $config['password'], $config['options']);
     }
 
     public static function connection($connectName = 'default')
     {
-        return new MysqlConnection(self::getConnection($connectName), $connectName);
+        return new PdoConnection(self::getConnection($connectName), $connectName);
     }
 }
