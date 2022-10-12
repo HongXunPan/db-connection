@@ -5,7 +5,7 @@ namespace HongXunPan\DB\Mysql\Mysqli;
 use HongXunPan\DB\DBContract;
 
 /**
- * @method static MysqliConnection connection($connectName = 'default') 获取连接实例
+ * @method static MysqliConnection connection(string $connectName = 'default') 获取连接实例
  *
  * Created by PhpStorm At 2022/10/12 15:19.
  * Author: HongXunPan

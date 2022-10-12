@@ -4,8 +4,18 @@ namespace HongXunPan\DB\Redis;
 
 use HongXunPan\DB\DBContract;
 
+/**
+ * @method static \Redis connection(string $connectName = 'default')
+ * @method static \Redis getConnection(string $connectName = 'default')
+ *
+ * Created by PhpStorm At 2022/10/13 00:50.
+ * Author: HongXunPan
+ * Email: me@kangxuanpeng.com
+ */
 class Redis extends DBContract
 {
+    protected $connectionClass = RedisConnection::class;
+
     /**
      * @param array $config
      * default:
@@ -34,11 +44,6 @@ class Redis extends DBContract
         $config = array_merge($default, $config);
         $config['options'] = $options;
         parent::saveConfig($config, $connectName);
-    }
-
-    public static function connection($connectName = 'default')
-    {
-        return new RedisConnection(self::getConnection($connectName));
     }
 
     /**

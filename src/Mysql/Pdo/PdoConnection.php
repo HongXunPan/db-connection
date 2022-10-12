@@ -3,33 +3,18 @@
 namespace HongXunPan\DB\Mysql\Pdo;
 
 use HongXunPan\DB\DBConnectionContract;
-use PDO;
 
+/**
+ * @method PdoConnection __construct(\PDO $connection, string $connectName = 'default')
+ * @method \PDO getConnection()
+ *
+ * Created by PhpStorm At 2022/10/13 00:42.
+ * Author: HongXunPan
+ * Email: me@kangxuanpeng.com
+ * @noinspection SpellCheckingInspection
+ */
 class PdoConnection extends DBConnectionContract
 {
-    /**
-     * @param $connection
-     * @param string $connectName
-     * @return DBConnectionContract|PdoConnection
-     * @noinspection PhpReturnDocTypeMismatchInspection
-     */
-    public function __construct($connection, $connectName = 'default')
-    {
-        return parent::__construct($connection, $connectName);
-    }
-
-    /**
-     * @return PDO
-     * @deprecated
-     * @author HongXunPan <me@kangxuanpeng.com>
-     * @date 2022-10-11 17:05
-     * @noinspection PhpDeprecationInspection
-     */
-    public function getConnection()
-    {
-        return parent::getConnection();
-    }
-
     protected function recordLog($name, $arguments)
     {
     }

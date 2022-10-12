@@ -5,8 +5,19 @@ namespace HongXunPan\DB\Mysql\Pdo;
 use Exception;
 use HongXunPan\DB\DBContract;
 
+/**
+ * @method static PdoConnection connection(string $connectName = 'default')
+ * @method static \PDO getConnection(string $connectName = 'default')
+ *
+ * Created by PhpStorm At 2022/10/13 00:45.
+ * Author: HongXunPan
+ * Email: me@kangxuanpeng.com
+ * @noinspection SpellCheckingInspection
+ */
 class Pdo extends DBContract
 {
+    protected $connectionClass = PdoConnection::class;
+
     public static function setConfig(array $config = [], $connectName = 'default', array $options = [])
     {
         $default = [
@@ -47,10 +58,5 @@ class Pdo extends DBContract
     protected function connect(array $config)
     {
         return new \PDO($config['dsn'], $config['username'], $config['password'], $config['options']);
-    }
-
-    public static function connection($connectName = 'default')
-    {
-        return new PdoConnection(self::getConnection($connectName), $connectName);
     }
 }
