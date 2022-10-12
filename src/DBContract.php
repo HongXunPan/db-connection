@@ -28,10 +28,11 @@ abstract class DBContract implements DBInterface
      */
     protected static function getInstance()
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        $class = get_called_class();
+        if (!isset(static::$instance[$class])) {
+            static::$instance[$class] = new $class();
         }
-        return static::$instance;
+        return static::$instance[$class];
     }
 
     protected static function saveConfig($config, $connectName)

@@ -93,4 +93,5 @@ $res = \HongXunPan\DB\Mysql\Pdo\Pdo::getConnection('default')
 
 ## update log
 
+`1.0.1` 2022-10-13 fix singleton extends bug
 `1.0.0` 2022-10-13 version1, include redis & mysqli & pdo
