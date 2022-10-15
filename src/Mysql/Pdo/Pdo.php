@@ -7,12 +7,10 @@ use HongXunPan\DB\DBContract;
 
 /**
  * @method static PdoConnection connection(string $connectName = 'default')
- * @method static \PDO getConnection(string $connectName = 'default')
  *
  * Created by PhpStorm At 2022/10/13 00:45.
  * Author: HongXunPan
  * Email: me@kangxuanpeng.com
- * @noinspection SpellCheckingInspection
  */
 class Pdo extends DBContract
 {
