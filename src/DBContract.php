@@ -45,7 +45,7 @@ abstract class DBContract implements DBInterface
 
     abstract protected function connect(array $config);
 
-    final public static function getConnection($connectName = 'default')
+    final protected static function getConnection($connectName = 'default')
     {
         $instance = self::getInstance();
         if (isset($instance->connection[$connectName])) {
